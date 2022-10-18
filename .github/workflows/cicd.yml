@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
-    branches: [ "master" ]
+    branches: [ "dep-incusions" ]
     pull_request:
     branches: ["master"]
  
@@ -38,13 +38,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-# Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
   
-  # Deploy To Heroku
+   # Deploy To Heroku
   deploy:
     runs-on: ubuntu-latest
     needs: [build]
@@ -53,5 +48,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12 
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_api_name: "comp_devops"
-          heroku_email: "vaibhav.guliani@georgebrown.ca"
+          heroku_api_name: "comp3104-devops-101336421"
+          heroku_email: "101336421@georgebrown.ca"
